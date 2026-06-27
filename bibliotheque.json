@@ -1,10 +1,10 @@
 {
     "S Abdou Rahmane": {
-        "01 Kun_Katiman": [
+        "01 Kun Katiman": [
             "kun_katiman_001.ogg",
             "kun_katiman_002.ogg"
         ],
-        "02 Tazawwudus_Sixar": [
+        "02 Tazawwudus Sixar": [
             "tazawudus_sixar_001.ogg",
             "tazawudus_sixar_002.ogg",
             "tazawudus_sixar_003.ogg",
@@ -47,37 +47,37 @@
             "tazawudus_sixar_040.ogg",
             "tazawudus_sixar_041.ogg"
         ],
-        "03 Jawharun Nafìs": [],
-        "04 Tazawwudus Shubbàn": [],
-        "05 Nahju Xadà-Il Hàj": [],
-        "06 Huqal Bukà-U": [],
-        "07 Maghàlikhun Niràn": [],
-        "08 Masàlikul Jinàn": [],
-        "09 Mawàhibul Xuddùs": [],
-        "10 Ilhamul Wadùd": [],
-        "11 Ilhàmus Salàm": [],
-        "12 Jàlibatul Burùr": [],
-        "13 Mulayyinus Sudùr": [],
-        "14 Munawwirus Sudùr": [],
-        "15 Jazbatus Sighàr": [],
-        "16 Zàdu Zawit Tahallumi": [],
-        "17 Faydul Ghaniyyil Mughnì": [],
-        "18 Hàma Shahidnà Bikaramin": [],
-        "19 Jawàbu Sokhna Penda Diop": [],
-        "20 Jawàbu Serign Pakala": [],
-        "21 Silkul Jawàhir": [],
-        "22 Fathul Mannàn": [],
-        "23 Majmahun Nùrayni": [],
-        "24 Majmùhatun": [],
-        "25 Nafà-Isud Durari": [],
-        "26 Jazbul Xulùb": [],
-        "27 Mawàhibun Nàfih": [],
-        "28 Muxaddamàtul Amdàh": [],
-        "29 Rà-Iya": []
+        "03 Jawharun Nafis": [],
+        "04 Tazawwudus Shubban": [],
+        "05 Nahju Xada Il Haj": [],
+        "06 Huqal Buka U": [],
+        "07 Maghalikhun Niran": [],
+        "08 Masalikul Jinan": [],
+        "09 Mawahibul Xuddus": [],
+        "10 Ilhamul Wadud": [],
+        "11 Ilhamus Salam": [],
+        "12 Jalibatul Burur": [],
+        "13 Mulayyinus Sudur": [],
+        "14 Munawwirus Sudur": [],
+        "15 Jazbatus Sighar": [],
+        "16 Zadu Zawit Tahallumi": [],
+        "17 Faydul Ghaniyyil Mughni": [],
+        "18 Hama Shahidna Bikaramin": [],
+        "19 Jawabu Sokhna Penda Diop": [],
+        "20 Jawabu Serign Pakala": [],
+        "21 Silkul Jawahir": [],
+        "22 Fathul Mannan": [],
+        "23 Majmahun Nurayni": [],
+        "24 Majmuhatun": [],
+        "25 Nafa Isud Durari": [],
+        "26 Jazbul Xulub": [],
+        "27 Mawahibun Nafih": [],
+        "28 Muxaddamatul Amdah": [],
+        "29 Ra Iya": []
     },
     "S Bass Khelcom": {
-        "01 Histoire Des Prophètes": [],
-        "02 Histoire Du Prophete (PSL)": [
+        "01 Histoire Des Prophetes": [],
+        "02 Histoire Du Prophete Psl": [
             "01_le_debut_de_l_islam.ogg",
             "02_persecutions_exils_en_ethiopie_conversions_de_seydina_de_hamza_et_de_s_omar.ogg",
             "03_le_boycotte_l_annee_du_chagrin_et_la_deception_taif.ogg",
@@ -104,34 +104,128 @@
         "05 Minanoul Baaxil Xadiim": []
     },
     "S Sam Mbaye": {
-        "01 Éducation": [
+        "Ak Talube": [
             "ak_talube_1.ogg",
             "ak_talube_2.ogg",
             "ak_talube_3.ogg"
         ],
-        "02 Fin Des Temps": [
-            "axiruz_zaman_1.ogg",
-            "axiruz_zaman_2.ogg",
-            "axiruz_zaman_3.ogg"
+        "Banekh": [
+            "banekh_1.ogg",
+            "banekh_2.ogg",
+            "banekh_3.ogg"
         ],
-        "03 Coeur Du Musulman": [],
-        "04 Connaître Islam": [],
-        "05 Coran Et Son Message": [],
-        "06 Dieu Et Ses Créatures": [],
-        "07 Islam Et Foi  An-84": [],
-        "08 Islam Et Jeunesse": [],
-        "09 Islam Et Parenté": [],
-        "10 Khadimou Rassoul": [],
-        "11 Khassida": [],
-        "12 La Foi": [],
-        "13 Àme Éternelle": [],
-        "14 Le Monde Contemporain": [],
-        "15 Le Musulman": [],
-        "16 Le Plaisir": [],
-        "17 Le Soufisme": [],
-        "18 Le Temps": [],
-        "19 Serigne Touba Et La Jeunesse": [],
-        "20 Unicité Des Musulmans": [],
-        "21 Prêche Eid Al Fitr": []
+        "Benno Djoulit Ngi": [
+            "benno_djoulit_ngi_gabon_1.ogg",
+            "benno_djoulit_ngi_gabon_2.ogg"
+        ],
+        "Djamonoy Tay": [
+            "djamonoy_tay_mbaye.ogg"
+        ],
+        "Djoulit": [
+            "djoulit_01.ogg",
+            "djoulit_02.ogg",
+            "djoulit_03.ogg",
+            "djoulit_04.ogg",
+            "djoulit_05.ogg",
+            "djoulit_06.ogg",
+            "djoulit_07.ogg",
+            "djoulit_08.ogg",
+            "djoulit_09.ogg",
+            "djoulit_10.ogg"
+        ],
+        "Lane Moy Lislam": [
+            "lane_moy_lislam_annee_93.ogg"
+        ],
+        "Lislam Ak Ndaw Ngi": [
+            "lislam_ak_ndaw_ngi_dakar_1982.ogg",
+            "lislam_ak_ndaw_ngi_kebemer_1997.ogg",
+            "lislam_ak_ndaw_ngi_louga_1985.ogg"
+        ],
+        "Mbokkoo Ci Lislam": [
+            "mbokkoo_ci_lislam_kebemer.ogg"
+        ],
+        "Ngeum Yalla": [
+            "ngeum_yalla_1.ogg",
+            "ngeum_yalla_2.ogg"
+        ],
+        "Njarignou Alkhourane": [
+            "njarignou_alkhourane.ogg"
+        ],
+        "Rissalatul Quran": [
+            "rissalatul_quran_louga_1997.ogg"
+        ],
+        "Rouh Lumiere Eternelle": [
+            "rouh_lumiere_eternelle.ogg"
+        ],
+        "Serigne Touba Ak Ndaw Ngi": [
+            "serigne_touba_ak_ndaw_ngi_louga_1985.ogg"
+        ],
+        "Yalla Ak Mbindef Yi": [
+            "yalla_ak_mbindef_yi.ogg"
+        ],
+        "Yar Ak Teggin": [
+            "yar_ak_teggin_ak_ndaw_gni.ogg",
+            "yarr_ak_teggin_kebemer_1981.ogg"
+        ],
+        "Akhirouzaman": [
+            "akhirouzaman_1.ogg",
+            "akhirouzaman_2.ogg",
+            "akhirouzaman_3.ogg"
+        ],
+        "Alkhourane": [
+            "alkhouran_koki_ziyar_1994.ogg",
+            "alkhourane_1.ogg",
+            "alkhourane_2.ogg",
+            "alkhourane_louga_rts_tgp_1997.ogg",
+            "alkhourane_parcel_93.ogg",
+            "alkhourane_touba_darou_minane_92.ogg"
+        ],
+        "Dine Ak Ngeum": [
+            "dine_ak_ngeum_01.ogg",
+            "dine_ak_ngeum_02.ogg",
+            "dine_ak_ngeum_03.ogg",
+            "dine_ak_ngeum_04.ogg",
+            "dine_ak_ngeum_05.ogg",
+            "dine_ak_ngeum_06.ogg",
+            "dine_ak_ngeum_07.ogg",
+            "dine_ak_ngeum_08.ogg"
+        ],
+        "Djamono": [
+            "djamono_1.ogg",
+            "djamono_2.ogg",
+            "djamono_3.ogg",
+            "djamono_4.ogg"
+        ],
+        "Khadimour Roussoul": [
+            "khadimour_roussoul_1.ogg",
+            "khadimour_roussoul_2.ogg"
+        ],
+        "Kham Sa Dine": [
+            "kham_sa_dine_annee_92_vol_01.ogg",
+            "kham_sa_dine_annee_92_vol_02.ogg",
+            "kham_sa_dine_annee_92_vol_03.ogg",
+            "kham_sa_dine_annee_92_vol_04.ogg",
+            "kham_sa_dine_annee_92_vol_05.ogg",
+            "kham_sa_dine_annee_92_vol_06.ogg"
+        ],
+        "Khassida": [
+            "khassida.ogg"
+        ],
+        "Kholoub Djoulit Ak Melow Talibe": [
+            "kholoub_djoulit_ak_melow_talibe_1.ogg",
+            "kholoub_djoulit_ak_melow_talibe_2.ogg",
+            "kholoub_djoulit_ak_melow_talibe_3.ogg"
+        ],
+        "Khoutba Korite": [
+            "khoutba_korite_face_1.ogg",
+            "khoutba_korite_face_2.ogg",
+            "khoutba_korite_face_3.ogg"
+        ],
+        "Tassawouf": [
+            "tassawouf_1_mp3.ogg",
+            "tassawouf_2_mp3.ogg",
+            "tassawouf_3_mp3.ogg",
+            "tassawouf_4_mp3.ogg"
+        ]
     }
 }
