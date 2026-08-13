@@ -1593,7 +1593,25 @@
         ]
     },
     "S Bass Khelcom": {
-        "01 Histoire Des Prophetes": [],
+        "01 Histoire Des Prophetes": [
+            "01_adama_partie_1.ogg",
+            "01_adama_partie_2.ogg",
+            "02_ayoba.ogg",
+            "03_ibrahima_partie_1.ogg",
+            "03_ibrahima_partie_2.ogg",
+            "03_ibrahima_partie_3.ogg",
+            "04_insa_ibn_maryam.ogg",
+            "05_yahya.ogg",
+            "06_moussa_partie_1.ogg",
+            "06_moussa_partie_2.ogg",
+            "06_moussa_partie_3.ogg",
+            "06_moussa_partie_4.ogg",
+            "06_moussa_partie_5.ogg",
+            "07_souleymane_partie_1.ogg",
+            "07_souleymane_partie_2.ogg",
+            "08_youssouf_partie_1.ogg",
+            "08_youssouf_partie_2.ogg"
+        ],
         "02 Histoire Du Prophete Psl": [
             "01_le_debut_de_l_islam.ogg",
             "02_persecutions_exils_en_ethiopie_conversions_de_seydina_de_hamza_et_de_s_omar.ogg",
@@ -1616,9 +1634,53 @@
             "19_melokanu_yonentabi_saw_ak_ay_djikkoom.ogg",
             "20_guinaw_bi_yonentebi_saw_lakho_xewxew_ya_thia_am_ay_soxnam.ogg"
         ],
-        "03 Histoire Des 4 Kalifas": [],
-        "04 Histoire De Cheikhoul Khadim": [],
-        "05 Minanoul Baaxil Xadiim": []
+        "03 Histoire Des 4 Kalifas": [
+            "1_seydina_abou_bakrine_as_siddiq_1.ogg",
+            "1_seydina_abou_bakrine_as_siddiq_2.ogg",
+            "2_seydina_omar_ibn_al_khattab_1.ogg",
+            "2_seydina_omar_ibn_al_khattab_2.ogg",
+            "2_seydina_omar_ibn_al_khattab_3.ogg",
+            "2_seydina_omar_ibn_al_khattab_4.ogg",
+            "2_seydina_omar_ibn_al_khattab_5.ogg",
+            "3_seydina_ousmane.ogg",
+            "4_seydina_alioune_partie_1.ogg",
+            "4_seydina_alioune_partie_2.ogg",
+            "4_seydina_alioune_partie_3.ogg",
+            "4_seydina_alioune_partie_4.ogg",
+            "karbala.ogg",
+            "salman_al_farisii_a_la_recherche_de_la_verite.ogg"
+        ],
+        "04 Histoire De Cheikhoul Khadim": [
+            "01_la_genealogie_de_cheikh_ahmadou_bamba.ogg",
+            "02_education_de_cheikh_ahmadou_bamba_et_le_sejour_chez_maba_diakhou_ba.ogg",
+            "03_les_qualites_eminentes_de_cheikh_ahmadou_bamba.ogg",
+            "04_rappel_a_dieu_de_s_mor_anta_sally_et_nouvelles_resolutions_du_cheikh.ogg",
+            "05_les_rapports_entre_serigne_touba_et_lat_dior.ogg",
+            "06_serigne_touba_sa_m_c3_a9thode_de_tarbiyyah_ses_cites_ses_sorties.ogg",
+            "07_ruee_des_foules_envers_le_cheikh_et_jalousie_engendree.ogg",
+            "08_demenagement_djolof_et_debut_des_hostilites_avec_les_colons.ogg",
+            "09_exil_de_serigne_touba_les_peripeties_et_itineraire.ogg",
+            "10_sejour_de_serigne_touba_au_gabon.ogg",
+            "11_le_role_des_grands_disciples_et_retour_d_exil_de_serigne_touba.ogg"
+        ],
+        "05 Minanoul Baaxil Xadiim": [
+            "minanul_baqil_qadim_00_s_bassirou_mbacke_ibn_serigne_touba_l_auteur_du_livre.ogg",
+            "minanul_baqil_qadim_01_sommaire_de_l_ouvrage.ogg",
+            "minanul_baqil_qadim_02_l_intelligence_fascinante_de_serigne_touba.ogg",
+            "minanul_baqil_qadim_03_les_qualites_eminentes_de_serigne_touba.ogg",
+            "minanul_baqil_qadim_04_tassawouf_genese_et_arcanes_et_son_rapport_avec_le_fikh.ogg",
+            "minanul_baqil_qadim_05_tassawouf_les_grands_maitres_soufis_et_serigne_touba.ogg",
+            "minanul_baqil_qadim_06_naissance_et_parcours_educatif_du_cheikh.ogg",
+            "minanul_baqil_qadim_07_maba_disparu_et_lat_dior_sur_le_trone_lecons_tirees_par_le_cheikh.ogg",
+            "minanul_baqil_qadim_08_serigne_touba_et_s_m_anta_saly_le_respect_d_un_fils_envers_son_pere.ogg",
+            "minanul_baqil_qadim_09_affluence_des_gens_autour_du_cheikh_pour_s_eduquer_et_s_instruire.ogg",
+            "minanul_baqil_qadim_10_lat_dior_et_serigne_touba_de_la_mesentente_aux_amabilites.ogg",
+            "minanul_baqil_qadim_11_serigne_touba_calomnie_puis_exile_au_gabon.ogg",
+            "minanul_baqil_qadim_12_organisation_des_dignitaires_mourides_lors_de_l_exil_du_cheikh.ogg",
+            "minanul_baqil_qadim_13_etapes_de_darou_minane_et_de_mauritanie.ogg",
+            "minanul_baqil_qadim_14_sagesses_islamiques_et_vertus_sociales.ogg",
+            "minanul_baqil_qadim_15_concept_d_istiqama_et_l_estime_des_awliya_envers_le_cheikh.ogg"
+        ]
     },
     "S Sam Mbaye": {
         "Ak Talube": [
