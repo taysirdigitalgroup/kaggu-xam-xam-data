@@ -1,0 +1,25 @@
+{
+  "professors": [
+    {
+      "name": "S Abdou Rahmane",
+      "role": "Enseignements",
+      "image": "s_abdou_rahmane.jpg",
+      "order": 1,
+      "active": true
+    },
+    {
+      "name": "S Bass Khelcom",
+      "role": "Histoires",
+      "image": "s_bass_khelcom.jpg",
+      "order": 2,
+      "active": true
+    },
+    {
+      "name": "S Sam Mbaye",
+      "role": "Conférences",
+      "image": "s_sam_mbaye.jpg",
+      "order": 3,
+      "active": true
+    }
+  ]
+}
