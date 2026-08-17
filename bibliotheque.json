@@ -1,6 +1,4 @@
 {
-    "S Alhadji Mbacké": {},
-    "S Saliou Sow": {},
     "S Abdou Rahmane": {
         "01 Kun Katiman": [
             "kun_katiman_001.ogg",
@@ -3082,7 +3080,6 @@
             "riyadus_salihina_018_2.ogg",
             "riyadus_salihina_019.ogg",
             "riyadus_salihina_020_1.ogg",
-            "riyadus_salihina_020_10.ogg",
             "riyadus_salihina_020_2.ogg",
             "riyadus_salihina_020_3.ogg",
             "riyadus_salihina_020_4.ogg",
@@ -3091,6 +3088,7 @@
             "riyadus_salihina_020_7.ogg",
             "riyadus_salihina_020_8.ogg",
             "riyadus_salihina_020_9.ogg",
+            "riyadus_salihina_020_10.ogg",
             "riyadus_salihina_021.ogg",
             "riyadus_salihina_022.ogg",
             "riyadus_salihina_023.ogg",
@@ -3886,6 +3884,80 @@
             "riyadus_salihina_760.ogg"
         ]
     },
+    "S Alhadji Mbacke": {
+        "Ab Murid": [
+            "1_tambalib_mouriid.ogg",
+            "2_khaadialoub_mouriid.ogg",
+            "3_daytaloub_mouriid.ogg"
+        ],
+        "Diyafatoul Samadiya": [
+            "diyafatou_samadiya_01_tambali.ogg",
+            "diyafatou_samadiya_02_tomes_1.ogg",
+            "diyafatou_samadiya_03_tomes_2.ogg",
+            "diyafatou_samadiya_04_tomes_3.ogg",
+            "diyafatou_samadiya_05_tomes_4.ogg",
+            "diyafatou_samadiya_06_tomes_5.ogg",
+            "diyafatou_samadiya_07_tomes_6.ogg",
+            "diyafatou_samadiya_08_tomes_7.ogg"
+        ],
+        "Garabuk Tuba 8": [
+            "01_garabouk_touba_vol8.ogg",
+            "02_garabouk_touba_vol8.ogg",
+            "03_garabouk_touba_vol8.ogg",
+            "04_garabouk_touba_vol8.ogg",
+            "05_silkoul_jawahir.ogg",
+            "06_silkoul_jawahir.ogg",
+            "07_silkoul_jawahir.ogg",
+            "08_silkoul_jawahir.ogg",
+            "09_silkoul_jawahir.ogg",
+            "10_silkoul_jawahir.ogg",
+            "11_silkoul_jawahir.ogg",
+            "12_silkoul_jawahir.ogg",
+            "13_silkoul_jawahir.ogg",
+            "14_silkoul_jawahir.ogg"
+        ],
+        "Garabuk Tùba 8": [
+            "01_garabouk_touba_vol8.ogg",
+            "02_garabouk_touba_vol8.ogg",
+            "03_garabouk_touba_vol8.ogg",
+            "04_garabouk_touba_vol8.ogg",
+            "05_silkoul_jawahir.ogg",
+            "06_silkoul_jawahir.ogg",
+            "07_silkoul_jawahir.ogg",
+            "08_silkoul_jawahir.ogg",
+            "09_silkoul_jawahir.ogg",
+            "10_silkoul_jawahir.ogg",
+            "11_silkoul_jawahir.ogg",
+            "12_silkoul_jawahir.ogg",
+            "13_silkoul_jawahir.ogg",
+            "14_silkoul_jawahir.ogg"
+        ],
+        "Irwa Un Nadim": [
+            "01_irwahou_nadim_wolof.ogg",
+            "02_irwahou_nadim_wolof.ogg",
+            "03_irwahou_nadim_wolof.ogg",
+            "04_irwahou_nadim_wolof.ogg",
+            "05_irwahou_nadim_wolof.ogg"
+        ],
+        "Irwà-Un Nadìm": [
+            "01_irwahou_nadim_wolof.ogg",
+            "02_irwahou_nadim_wolof.ogg",
+            "03_irwahou_nadim_wolof.ogg",
+            "04_irwahou_nadim_wolof.ogg",
+            "05_irwahou_nadim_wolof.ogg"
+        ],
+        "Safwatus Siar": [
+            "01_safwatou_zira.ogg",
+            "03_nelawou_mame_mor.ogg",
+            "05_younou_gethgui.ogg",
+            "06_gnibissig_ser_touba.ogg",
+            "07_mouritani_diolof_ndiareme.ogg",
+            "08_wa_barsaak_sokhna_yi.ogg",
+            "09_pekhem_toubab_bi_melaw_ser_by.ogg",
+            "10_lackou_borom_touba.ogg",
+            "11_ndenkaane_ser_touba.ogg"
+        ]
+    },
     "S Bass Khelcom": {
         "01 Histoire Des Prophetes": [
             "01_adama_partie_1.ogg",
@@ -3982,6 +4054,7 @@
             "minanul_baqil_qadim_22_le_cheikh_et_les_trois_3_formes_de_patience.ogg"
         ]
     },
+    "S Saliou Sow": {},
     "S Sam Mbaye": {
         "Ak Talube": [
             "ak_talube_1.ogg",
