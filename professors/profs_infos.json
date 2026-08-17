@@ -20,13 +20,6 @@
       "image": "s_sam_mbaye.jpg",
       "order": 3,
       "active": true
-    },
-    {
-      "name": "S Saliou Sow",
-      "role": "Conférences",
-      "image": "s_saliou_sow.jpg",
-      "order": 4,
-      "active": true
     }
   ]
 }
