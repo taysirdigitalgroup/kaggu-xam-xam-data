@@ -27,6 +27,13 @@
       "image": "s_saliou_sow.jpg",
       "order": 4,
       "active": true
+    },
+    {
+      "name": "S Alhadji Mbacké",
+      "role": "Xam xam Wolof",
+      "image": "s_alhadji_mbacke.jpg",
+      "order": 5,
+      "active": true
     }
   ]
 }
