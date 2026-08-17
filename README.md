@@ -11,5 +11,5 @@ Note : Nom de dossier = nom Prof exacte - Sera auto formatté par catalogue_proc
 4. ***Lancer catalogue_processor.py et choisissez audios/ comme cyble***
 5. ***Récupérer le nouveau bibiotheque.json dans audios/ à déplacer sur la racine (écraser l'ancien)***
 6. ***Faire le git add . && git commit -m "Notations ici" && git push -u origin main***
-
+Note: ajouter --force sur le push s'il le faut.'
 ---
