@@ -34,16 +34,20 @@ def to_slug(text):
 def format_folder_name(name):
     """
     Retourne le nom du dossier capitalisé.
-    Si le nom est déjà un slug normalisé (ex: s_sam_mbaye), il le dé-normalise
-    avant de le capitaliser.
+    Si le nom est un slug normalisé, il le dé-normalise avant de le capitaliser.
     """
     if not name:
         return ""
     
-    if re.match(r'^[a-z0-9_]+$', name):
-        name = name.replace("_", " ")
+    # Nettoyage des caractères spéciaux résiduels avant formatage visuel
+    cleaned = re.sub(r"['\(\)\-@%]", " ", name)
+    cleaned = unicodedata.normalize('NFD', cleaned)
+    cleaned = "".join([c for c in cleaned if unicodedata.category(c) != 'Mn'])
+    
+    if re.match(r'^[a-z0-9_]+$', cleaned.lower()):
+        cleaned = cleaned.replace("_", " ")
         
-    return name.title().strip()
+    return re.sub(r'\s+', ' ', cleaned).title().strip()
 
 def natural_sort_key(text):
     """
@@ -51,6 +55,52 @@ def natural_sort_key(text):
     ex: 'piste_1', 'piste_2', 'piste_10' au lieu de 'piste_1', 'piste_10', 'piste_2'.
     """
     return [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', text)]
+
+def consolidate_json_structure(raw_json):
+    """
+    Nettoie et consolide un dictionnaire JSON en fusionnant les Professeurs
+    et Thèmes ayant le même slug (ex: "Irwà-Un Nadìm" et "Irwa Un Nadim").
+    """
+    consolidated = {}
+    
+    for prof_key, themes in raw_json.items():
+        prof_slug = to_slug(prof_key)
+        
+        # Recherche si le prof existe déjà sous un autre nom équivalent
+        matched_prof_key = None
+        for p_key in consolidated.keys():
+            if to_slug(p_key) == prof_slug:
+                matched_prof_key = p_key
+                break
+        
+        if not matched_prof_key:
+            matched_prof_key = format_folder_name(prof_key)
+            consolidated[matched_prof_key] = {}
+            
+        if isinstance(themes, dict):
+            for theme_key, tracks in themes.items():
+                theme_slug = to_slug(theme_key)
+                
+                # Recherche si le thème existe déjà sous un autre nom équivalent
+                matched_theme_key = None
+                for t_key in consolidated[matched_prof_key].keys():
+                    if to_slug(t_key) == theme_slug:
+                        matched_theme_key = t_key
+                        break
+                
+                if not matched_theme_key:
+                    matched_theme_key = format_folder_name(theme_key)
+                    consolidated[matched_prof_key][matched_theme_key] = []
+                
+                # Fusion des pistes audio sans doublons
+                existing_tracks = set(consolidated[matched_prof_key][matched_theme_key])
+                if isinstance(tracks, list):
+                    for track in tracks:
+                        existing_tracks.add(track)
+                        
+                consolidated[matched_prof_key][matched_theme_key] = sorted(list(existing_tracks), key=natural_sort_key)
+                
+    return consolidated
 
 
 class CatalogProcessingThread(QThread):
@@ -69,49 +119,63 @@ class CatalogProcessingThread(QThread):
             json_output_path = self.root_folder / 'bibliotheque.json'
             
             # -----------------------------------------------------------------
-            # ÉTAPE 0 : CHARGEMENT DU JSON DE RÉFÉRENCE SÉLECTIONNÉ
+            # ÉTAPE 0 : CHARGEMENT & CONSOLIDATION DU JSON DE RÉFÉRENCE
             # -----------------------------------------------------------------
             bibliotheque = {}
             if self.reference_json_path and self.reference_json_path.exists():
                 try:
                     with open(self.reference_json_path, 'r', encoding='utf-8') as f:
-                        bibliotheque = json.load(f)
-                    self.log_signal.emit(f"📖 JSON de référence chargé : '{self.reference_json_path.name}' (conservation active).")
+                        raw_data = json.load(f)
+                    # Consolidation préalable des doublons dans le fichier de référence
+                    bibliotheque = consolidate_json_structure(raw_data)
+                    self.log_signal.emit(f"📖 JSON de référence chargé et nettoyé des doublons : '{self.reference_json_path.name}'.")
                 except Exception as e:
-                    self.log_signal.emit(f"⚠️ Impossible de lire le JSON de référence ({e}). Création d'une nouvelle structure.")
+                    self.log_signal.emit(f"⚠️ Erreur de lecture du JSON de référence ({e}). Création d'une nouvelle structure.")
                     bibliotheque = {}
             else:
                 self.log_signal.emit("ℹ️ Aucun JSON de référence fourni. Création d'un nouveau catalogue.")
 
             # -----------------------------------------------------------------
-            # ÉTAPE 1 : MIGRATION & FUSION SANS PERTE (INCREMENTAL)
+            # ÉTAPE 1 : SCAN ET FUSION ANTI-REDONDANCE DES AUDIOS DU DISQUE
             # -----------------------------------------------------------------
-            self.log_signal.emit("📝 Étape 1 : Analyse des fichiers et fusion incrémentale...")
+            self.log_signal.emit("📝 Étape 1 : Analyse des dossiers et fusion incrémentale par Slug...")
 
-            # Extraction et tri naturel des dossiers Profs au premier niveau
             profs = sorted([d for d in os.listdir(self.root_folder) if (self.root_folder / d).is_dir()], key=natural_sort_key)
             
             for prof in profs:
                 prof_path = self.root_folder / prof
-                prof_display_name = format_folder_name(prof)
+                target_prof_slug = to_slug(prof)
                 
-                if prof_display_name not in bibliotheque:
-                    bibliotheque[prof_display_name] = {}
+                # 1. Correspondance Professeur par Slug
+                matched_prof_key = None
+                for p_key in bibliotheque.keys():
+                    if to_slug(p_key) == target_prof_slug:
+                        matched_prof_key = p_key
+                        break
                 
-                # Extraction et tri naturel des dossiers Thèmes au deuxième niveau
+                if not matched_prof_key:
+                    matched_prof_key = format_folder_name(prof)
+                    bibliotheque[matched_prof_key] = {}
+                
                 themes = sorted([t for t in os.listdir(prof_path) if (prof_path / t).is_dir()], key=natural_sort_key)
                 
                 for theme in themes:
                     theme_path = prof_path / theme
-                    theme_display_name = format_folder_name(theme)
+                    target_theme_slug = to_slug(theme)
                     
-                    if theme_display_name not in bibliotheque[prof_display_name]:
-                        bibliotheque[prof_display_name][theme_display_name] = []
+                    # 2. Correspondance Thème par Slug
+                    matched_theme_key = None
+                    for t_key in bibliotheque[matched_prof_key].keys():
+                        if to_slug(t_key) == target_theme_slug:
+                            matched_theme_key = t_key
+                            break
                     
-                    # Récupération des pistes déjà existantes dans le JSON pour ce thème
-                    pistes_existantes = set(bibliotheque[prof_display_name][theme_display_name])
+                    if not matched_theme_key:
+                        matched_theme_key = format_folder_name(theme)
+                        bibliotheque[matched_prof_key][matched_theme_key] = []
                     
-                    # Extraction et ajout des nouveaux fichiers audio du disque
+                    # 3. Fusion des pistes du dossier
+                    pistes_existantes = set(bibliotheque[matched_prof_key][matched_theme_key])
                     fichiers = sorted([f for f in os.listdir(theme_path) if (theme_path / f).is_file()], key=natural_sort_key)
                     
                     for f in fichiers:
@@ -119,11 +183,12 @@ class CatalogProcessingThread(QThread):
                         new_filename = to_slug(name) + ext.lower()
                         pistes_existantes.add(new_filename)
                         
-                    # Tri naturel de la liste fusionnée des pistes
-                    pistes_triees = sorted(list(pistes_existantes), key=natural_sort_key)
-                    bibliotheque[prof_display_name][theme_display_name] = pistes_triees
+                    # Re-tri naturel des pistes du thème
+                    bibliotheque[matched_prof_key][matched_theme_key] = sorted(list(pistes_existantes), key=natural_sort_key)
 
-            # Ré-organisation globale avec tri naturel pour le fichier final
+            # -----------------------------------------------------------------
+            # ÉTAPE 2 : ORGANISATION FINALE ET SAUVEGARDE DU JSON
+            # -----------------------------------------------------------------
             bibliotheque_organisee = {}
             for prof_key in sorted(bibliotheque.keys(), key=natural_sort_key):
                 bibliotheque_organisee[prof_key] = {}
@@ -131,16 +196,15 @@ class CatalogProcessingThread(QThread):
                     pistes = sorted(bibliotheque[prof_key][theme_key], key=natural_sort_key)
                     bibliotheque_organisee[prof_key][theme_key] = pistes
 
-            # Écriture du JSON dans le dossier de destination (root_folder)
             with open(json_output_path, 'w', encoding='utf-8') as f:
                 json.dump(bibliotheque_organisee, f, indent=4, ensure_ascii=False)
                 
-            self.log_signal.emit(f"💾 Fichier de sortie '{json_output_path.name}' écrit dans : {self.root_folder}")
+            self.log_signal.emit(f"💾 JSON nettoyé et sauvegardé dans : {json_output_path}")
 
             # -----------------------------------------------------------------
-            # ÉTAPE 2 : NORMALISATION ET REMPLACEMENT EFFECTIF DES FICHIERS/DOSSIERS
+            # ÉTAPE 3 : NORMALISATION DES FICHIERS ET DOSSIERS PHYSIQUES
             # -----------------------------------------------------------------
-            self.log_signal.emit("🔄 Étape 2 : Application physique de la normalisation sur le disque...")
+            self.log_signal.emit("🔄 Étape 3 : Normalisation physique des fichiers/dossiers sur le disque...")
             
             all_dirs = []
             all_files = []
@@ -154,12 +218,12 @@ class CatalogProcessingThread(QThread):
                     
             total_elements = len(all_files) + len(all_dirs)
             if total_elements == 0:
-                self.finished_signal.emit(True, "JSON mis à jour, mais aucun fichier/dossier physique à renommer.")
+                self.finished_signal.emit(True, "JSON fusionné et nettoyé avec succès.")
                 return
 
             processed_count = 0
 
-            # Renommage des fichiers d'abord
+            # Renommage des fichiers
             for root, file in all_files:
                 name, ext = os.path.splitext(file)
                 new_name = to_slug(name) + ext.lower()
@@ -174,7 +238,7 @@ class CatalogProcessingThread(QThread):
                 processed_count += 1
                 self.progress_signal.emit(int((processed_count / total_elements) * 100))
 
-            # Renommage des dossiers (de bas en haut grâce à topdown=False)
+            # Renommage des dossiers (de bas en haut)
             for root, d in all_dirs:
                 new_dir_name = to_slug(d)
                 
@@ -188,7 +252,7 @@ class CatalogProcessingThread(QThread):
                 processed_count += 1
                 self.progress_signal.emit(int((processed_count / total_elements) * 100))
 
-            self.finished_signal.emit(True, f"Traitement réussi !\nJSON fusionné et {processed_count} éléments normalisés.")
+            self.finished_signal.emit(True, f"Traitement réussi !\nLes entités de thèmes/profs en doublon ont été fusionnées et {processed_count} éléments normalisés.")
             
         except Exception as e:
             self.finished_signal.emit(False, str(e))
@@ -202,13 +266,13 @@ class AudioRenamerApp(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle("TDG Catalog Engine - Custom JSON Reference & Incremental Merge")
+        self.setWindowTitle("TDG Catalog Engine - Deduplicated Incremental Merge")
         self.setMinimumSize(700, 520)
         
         layout = QVBoxLayout()
         layout.setSpacing(12)
 
-        # Section 1 : Sélection du JSON de référence (Existant)
+        # Section 1 : JSON de référence
         layout.addWidget(QLabel("1. Sélectionner le JSON de référence (existant / à conserver) :"))
         json_layout = QHBoxLayout()
         self.txt_json_path = QLineEdit()
@@ -220,7 +284,7 @@ class AudioRenamerApp(QWidget):
         json_layout.addWidget(btn_browse_json, stretch=1)
         layout.addLayout(json_layout)
 
-        # Section 2 : Sélection du dossier racine des audios (Destination du JSON final)
+        # Section 2 : Dossier des audios à traiter
         layout.addWidget(QLabel("2. Sélectionner le répertoire des audios à traiter (Dossier Profs) :"))
         folder_layout = QHBoxLayout()
         self.txt_folder_path = QLineEdit()
@@ -246,7 +310,7 @@ class AudioRenamerApp(QWidget):
         layout.addWidget(self.progress_bar)
 
         # Section 5 : Bouton principal
-        self.btn_start = QPushButton("Lancer la fusion incrémentale & la normalisation")
+        self.btn_start = QPushButton("Lancer la déduplication & la normalisation")
         self.btn_start.setStyleSheet("background-color: #28A745; color: white; font-weight: bold; padding: 14px;")
         self.btn_start.clicked.connect(self.start_processing)
         layout.addWidget(self.btn_start)
@@ -274,15 +338,14 @@ class AudioRenamerApp(QWidget):
             QMessageBox.warning(self, "Erreur", "Veuillez sélectionner le répertoire des audios à traiter.")
             return
 
-        json_info = f"• JSON de référence : {self.selected_json_ref}\n" if self.selected_json_ref else "• Aucun JSON de référence (Nouveau catalogue)\n"
+        json_info = f"• JSON de référence : {self.selected_json_ref}\n" if self.selected_json_ref else "• Aucun JSON de référence\n"
         
         confirm = QMessageBox.question(
             self, "Confirmation requise", 
             f"{json_info}"
             f"• Dossier cible : {self.selected_folder}\n\n"
-            f"Le fichier 'bibliotheque.json' sera généré/mis à jour dans le dossier cible sans rien supprimer du JSON de référence.\n"
-            f"Les fichiers/dossiers physiques seront normalisés en slugs.\n\n"
-            f"Voulez-vous continuer ?",
+            f"Le script va fusionner les entités redondantes (ex: accents ou tirets) en se basant sur le slug unique.\n"
+            f"Voulez-vous démarrer la procédure ?",
             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
         )
 
