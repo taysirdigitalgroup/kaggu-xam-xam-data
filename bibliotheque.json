@@ -4037,8 +4037,18 @@
             "wajtayou_gamou_barzan.ogg"
         ]
     },
-    "S Mbaye Diakhate": {},
-    "S Moussa Ka": {},
+    "S Mbaye Diakhate": {
+        "Wolofal": []
+    },
+    "S Moussa Ka": {
+        "Barzan": [
+            "barzane_1_serigne_moussa_ka.ogg",
+            "barzane_2_serigne_moussa_ka.ogg",
+            "barzane_3_serigne_moussa_ka.ogg",
+            "barzane_4_serigne_moussa_ka.ogg",
+            "barzane_5_serigne_moussa_ka.ogg"
+        ]
+    },
     "S Saliou Sow": {},
     "S Sam Mbaye": {
         "Ak Talube": [
