@@ -29,31 +29,38 @@
       "active": true
     },
     {
+      "name": "Oustaz Hady Niasse",
+      "role": "Enseignements",
+      "image": "oustaz_hady_niasse.jpg",
+      "order": 5,
+      "active": true
+    },
+    {
       "name": "S Alhadji Mbacke",
       "role": "Enseignements Wolof",
       "image": "s_alhadji_mbacke.jpg",
-      "order": 5,
+      "order": 6,
       "active": true
     },
     {
       "name": "S Souhaibou Mbacke",
       "role": "Enseignements Wolof",
       "image": "s_souhaibou_mbacke.jpg",
-      "order": 6,
+      "order": 7,
       "active": true
     },
     {
       "name": "S Moussa Ka",
       "role": "Wolofal",
       "image": "s_moussa_ka.jpg",
-      "order": 7,
+      "order": 8,
       "active": true
     },
     {
       "name": "S Mbaye Diakhate",
       "role": "Wolofal",
       "image": "s_mbaye_diakhate.jpg",
-      "order": 8,
+      "order": 9,
       "active": true
     }
   ]
